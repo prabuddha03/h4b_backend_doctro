@@ -82,7 +82,7 @@ doctorSchema.index({ startLocation: '2dsphere' });
 // Virtual populate
 doctorSchema.virtual('reviews', {
   ref: 'Review',
-  foreignField: 'tour',
+  foreignField: 'doctor',
   localField: '_id'
 });
 
@@ -106,6 +106,6 @@ doctorSchema.post(/^find/, function(docs, next) {
   next();
 });
 
-const Doctor = mongoose.model('Tour', doctorSchema);
+const Doctor = mongoose.model('Doctor', doctorSchema);
 
 module.exports = Doctor;
